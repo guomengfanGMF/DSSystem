@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gmf.mapper.UserMapper">
+
+    <resultMap id="selU" type="user">
+        <id property="id" column="ID"/>
+        <result property="userNum" column="USER_NUM"/>
+        <result property="username" column="USER_ZH"/>
+        <result property="password" column="USER_PASSWORD"/>
+        <result property="userType" column="USER_TYPE"/>
+        <result property="userCardnum" column="USER_CARDNUM"/>
+        <result property="userBirth" column="USER_BIRTH"/>
+        <result property="userRealname" column="USER_REALNAME"/>
+        <result property="userRegdate" column="USER_REGDATE"/>
+        <result property="userCredits" column="USER_CREDITS"/>
+        <result property="userBalance" column="USER_BALANCE"/>
+        <result property="userEmail" column="USER_EMAIL"/>
+        <result property="userTotalmoney" column="USER_TOTALMONEY"/>
+        <result property="userPhone" column="USER_PHONE"/>
+        <result property="mainAddressID" column="USER_ADDID"/>
+        <result property="salt" column="SALT"/>
+    </resultMap>
+
+    <insert id="saveUser" parameterType="user">
+        insert into USER_USER(USER_NUM,USER_ZH,USER_PASSWORD,USER_TYPE,USER_CARDNUM,USER_BIRTH,
+        USER_REALNAME,USER_REGDATE,USER_CREDITS,USER_BALANCE,USER_EMAIL,USER_TOTALMONEY,USER_PHONE,USER_ADDID,SALT)
+        values(#{userNum},#{username},#{password},#{userType},#{userCardnum},#{userBirth},
+        #{userRealname},#{userRegdate},#{userCredits},#{userBalance},#{userEmail},#{userTotalmoney},#{userPhone},
+        #{mainAddressID},#{salt}
+        )
+    </insert>
+   <!-- username;password;userNum;userType;userCardnum;userBirth;userRealname;userRegdate;userCredits;
+    userBalance; userEmail;mainAddressID;userTotalmoney;userPhone;salt;-->
+    <select id="selUserByusercode" parameterType="string" resultMap="selU">
+        select * from USER_USER where USER_ZH=#{usercode}
+    </select>
+</mapper>
