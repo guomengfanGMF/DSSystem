@@ -108,12 +108,13 @@
     </div>
     <div id="centerDiv">
         <div id="left">
-        <a href="/"></a>
+
 
         </div>
         <div id="right">
          <a href="/login.jsp">登录</a>
          <a href="/reg.jsp">注册</a>
+         <a href="/addPtype.jsp">我要开店</a>
         </div>
     </div>
 </div>

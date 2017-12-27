@@ -24,7 +24,4 @@ public class UserServiceImpl implements UserService{
 
     }
 
-    public User selUserByusername(String username) {
-        return userMapper.selUserByusername(username);
-    }
 }

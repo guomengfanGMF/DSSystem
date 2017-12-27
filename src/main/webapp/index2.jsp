@@ -115,7 +115,9 @@
     </div>
     <div id="centerDiv">
         <div id="left">
-
+         <c:forEach items="${list}" var="list">
+             <a href="/addPro.jsp">${list.typeName}:添加商品信息</a><br/>
+         </c:forEach>
         </div>
         <div id="right">
 

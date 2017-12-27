@@ -68,15 +68,17 @@ public class UserController {
         return mav;
     }
     //判断账号是否已存在
-    @RequestMapping("/zh")
-    public ModelAndView zh(HttpServletRequest request,HttpServletResponse response,String username){
-        ModelAndView mav=new ModelAndView();
-        String username1=request.getParameter("username");
-        User user=userService.selUserByusername(username1);
-        if(user==null){
-            return null;
-        }
+  /*  @RequestMapping("/zh")
+    public String zh(HttpServletRequest request,HttpServletResponse response,String username) throws Exception{
 
-        return mav;
-    }
+        String username1=request.getParameter("username");
+        String username2=userService.selUserByusername(username1);
+        if(username2!=null){
+         username2=new String(username2.getBytes("ISO-8859-1"),"utf-8");
+        }
+        String returnString="";
+        returnString="已存在";
+        response.getWriter().println(returnString);
+        return returnString;
+    }*/
 }

@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Product implements Serializable {
     private int id;
     private String proNum;
-    private String username;
+    private String proname;
     private String proJianma;
     private int proTypeID;
     private int proSupperlierID;
@@ -34,12 +34,12 @@ public class Product implements Serializable {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getProname() {
+        return proname;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setProname(String proname) {
+        this.proname = proname;
     }
 
     public String getProJianma() {
@@ -119,7 +119,7 @@ public class Product implements Serializable {
         return "Product{" +
                 "id=" + id +
                 ", proNum='" + proNum + '\'' +
-                ", username='" + username + '\'' +
+                ", proname='" + proname + '\'' +
                 ", proJianma='" + proJianma + '\'' +
                 ", proTypeID=" + proTypeID +
                 ", proSupperlierID=" + proSupperlierID +
@@ -132,10 +132,10 @@ public class Product implements Serializable {
                 '}';
     }
 
-    public Product(int id,String proNum,String username, String proJianma, int proTypeID, int proSupperlierID, String proPutawaydate, String proPurl, String proSPurl, String zengPing, String change, String regdate) {
+    public Product(int id,String proNum,String proname, String proJianma, int proTypeID, int proSupperlierID, String proPutawaydate, String proPurl, String proSPurl, String zengPing, String change, String regdate) {
         this.id = id;
         this.proNum = proNum;
-        this.username = username;
+        this.proname = proname;
         this.proJianma = proJianma;
         this.proTypeID = proTypeID;
         this.proSupperlierID = proSupperlierID;

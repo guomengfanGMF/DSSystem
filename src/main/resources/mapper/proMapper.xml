@@ -3,12 +3,39 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gmf.mapper.ProMapper">
-    <insert id="savePro" parameterType="product">
+    <resultMap id="selP" type="product">
+        <id property="id" column="ID"/>
+        <result property="proNum" column="PRO_NUM"/>
+        <result property="proname" column="PRO_NAME"/>
+        <result property="proJianma" column="PRO_JIANMA"/>
+        <result property="proTypeID" column="PRO_TYPEID"/>
+        <result property="proSupperlierID" column="PRO_SUPPLIERID"/>
+        <result property="proPutawaydate" column="PRO_PUTAWAYDATE"/>
+        <result property="proPurl" column="PRO_PURL"/>
+        <result property="proSPurl" column="PRO_PSHOWURL"/>
+        <result property="zengPing" column="YORN_ZENGPING"/>
+        <result property="change" column="YORN_CHANGE"/>
+        <result property="regdate" column="PRO_REGDATE"/>
+    </resultMap>
+    <resultMap id="seltype" type="ptype">
+        <id property="id" column="ID"/>
+        <result property="typeNum" column="PTYPE_NUM"/>
+        <result property="typeName" column="PTYPE_NAME"/>
+        <result property="use" column="YORN_USE"/>
+        <result property="regDate" column="PTYPE_REGDATE"/>
+    </resultMap>
+    <insert id="addPro" parameterType="product">
         insert into pro_product(PRO_NUM,PRO_NAME,PRO_JIANMA,PRO_TYPEID,PRO_SUPPLIERID,PRO_PUTAWAYDATE,PRO_PURL,PRO_PSHOWURL
-        ,YORN_ZENGPING,YORN_CHANGE,PRO_REGDATE)values(#{proNum},#{username},#{proJianma},#{proTypeID},#{proSupperlierID}
+        ,YORN_ZENGPING,YORN_CHANGE,PRO_REGDATE)values(#{proNum},#{proname},#{proJianma},#{proTypeID},#{proSupperlierID}
         ,#{proPutawaydate},#{proPurl},#{proSPurl},#{zengPing},#{change},#{regdate})
     </insert>
     <insert id="savePtype" parameterType="ptype">
         insert into pro_ptype(PTYPE_NUM,PTYPE_NAME,YORN_USE,PTYPE_REGDATE)values(#{typeNum},#{typeName},#{use},#{regDate})
     </insert>
+    <select id="selAllPtype" resultMap="seltype">
+        select * from pro_ptype
+    </select>
+    <select id="selAllPro" resultMap="selP">
+        select * from pro_product
+    </select>
 </mapper>

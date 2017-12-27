@@ -13,10 +13,11 @@
 <body>
 <fieldset>
     <legend>商品信息表</legend>
-<form action="addPro" method="post" enctype="multipart/form-data">
-    商品名称：<input type="text" name="username"><br/>
+<form action="/addPro" method="post" enctype="multipart/form-data">
+    商品名称：<input type="text" name="proname"><br/>
     商品简码：<input type="text" name="proJianma"><br/>
-    上传图片：<input type="text" name="proPurl"><br/>
+    上传图片：<input type="file" name="proPurl"><br/>
+    上架时间：<input type="text"name="proPutawaydate"><br/>
     是否为赠品：<input type="text" name="zengPing"><br/>
     是否支持退换：<input type="text" name="change"><br/>
     <input type="submit" value="添加">

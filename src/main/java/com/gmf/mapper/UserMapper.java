@@ -7,5 +7,4 @@ import java.util.List;
 public interface UserMapper {
     public void saveUser(User user);
     public User selUserByusercode(String usercode);
-    public User selUserByusername(String username);
 }

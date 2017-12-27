@@ -11,19 +11,36 @@
     <title>注册</title>
    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
-        $(function () {
+
+       // var flag=false;//提交是否成功
+        function check() {
+            var val=document.getElementById("uname").value;
+            var info=document.getElementById("info");
+            if(val==""){
+                info.innerHTML="账号不能为空";
+                info.style.color="red";
+                return;
+            }
+        }
+       /* $(function () {
             $("#but").click(function () {
                 $.ajax({
                     url:"/zh",
                     type:"post",
-                    data:$("#username")
+                    data:$("#username").val(),
+                    dateType:"json"
                     error:function (res) {
-                        alert("账号已存在")
+                        alert("提交失败")
                     }
-
+                    success:function (date) {
+                          $("#ajaxDiv").html(date);
+                          if(date=="已存在"){
+                              //设置文本框不可填
+                          }
+                    }
                 })
             });
-        })
+        })*/
     </script>
 
 </head>
@@ -31,7 +48,9 @@
 <fieldset>
     <legend>请填写个人信息</legend>
     <form action="/reg" method="post">
-    账号：<input type="text" name="username" id="username"><br/>
+    账号：<input type="text" name="username" id="username" onblur="check()">
+        <label id="info">*</label><br/>
+   <div id="ajaxDiv"></div>
     密码：<input type="text" name="password"><br/>
     身份证号:<input type="text" name="userCardnum"><br/>
     会员生日:<input type="text" name="userBirth"><br/>
