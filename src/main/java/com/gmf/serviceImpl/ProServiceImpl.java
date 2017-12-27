@@ -1,6 +1,7 @@
 package com.gmf.serviceImpl;
 
 import com.gmf.entity.Product;
+import com.gmf.entity.Ptype;
 import com.gmf.mapper.ProMapper;
 import com.gmf.service.ProService;
 import org.springframework.stereotype.Service;
@@ -13,5 +14,9 @@ public class ProServiceImpl implements ProService {
     private ProMapper proMapper;
     public void savePro(Product product) {
         proMapper.savePro(product);
+    }
+
+    public void savePtype(Ptype ptype) {
+        proMapper.savePtype(ptype);
     }
 }

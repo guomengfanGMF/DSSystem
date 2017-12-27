@@ -13,7 +13,7 @@
 <body>
 <fieldset>
     <legend>商品信息表</legend>
-<form action="" method="post" enctype="multipart/form-data">
+<form action="addPro" method="post" enctype="multipart/form-data">
     商品名称：<input type="text" name="username"><br/>
     商品简码：<input type="text" name="proJianma"><br/>
     上传图片：<input type="text" name="proPurl"><br/>

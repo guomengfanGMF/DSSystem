@@ -3,7 +3,6 @@
 <html>
 <head>
     <title>首页</title>
-    <script language="javascript" src="jquery.js"></script>
     <style type="text/css">
         #topDiv{
             width:100%;

@@ -23,6 +23,14 @@ public class ProController {
         mav.setViewName("/WEB-INF/jsp/success.jsp");
         return mav;
     }
+    //向商品分类表pro_ptype添加分类
+    @RequestMapping("savePtype")
+    public ModelAndView savePtype(){
+        ModelAndView mav=new ModelAndView();
+        String typeNum="1";
+
+        return mav;
+    }
     //从商品分类表pro_ptype内查询所有的分类
     @RequestMapping("selAllPtype")
     public ModelAndView selAllPtype(){

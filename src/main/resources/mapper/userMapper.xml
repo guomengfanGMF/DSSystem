@@ -36,4 +36,7 @@
     <select id="selUserByusercode" parameterType="string" resultMap="selU">
         select * from USER_USER where USER_ZH=#{usercode}
     </select>
+    <select id="selUserByusername" parameterType="string" resultMap="selU">
+         select * from USER_USER where USER_ZH=#{username}
+    </select>
 </mapper>

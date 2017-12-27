@@ -10,7 +10,6 @@
 <html>
 <head>
     <title>商品展示页</title>
-    <script language="javascript" src="jquery.js"></script>
     <style type="text/css">
         #topDiv{
             width:100%;

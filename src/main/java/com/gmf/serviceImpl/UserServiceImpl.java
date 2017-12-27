@@ -23,4 +23,8 @@ public class UserServiceImpl implements UserService{
         return userMapper.selUserByusercode(usercode);
 
     }
+
+    public User selUserByusername(String username) {
+        return userMapper.selUserByusername(username);
+    }
 }

@@ -101,8 +101,31 @@
       <artifactId>aspectjweaver</artifactId>
       <version>1.8.10</version>
     </dependency>
+    <!--json-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.8.9</version>
+    </dependency>
+
   </dependencies>
   <build>
     <finalName>DSSystem</finalName>
+    <!--Tomcat7 插件-->
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
+          <version>2.1</version>
+          <configuration>
+            <port>9090</port>
+            <path>/</path>
+            <uriEncoding>UTF-8</uriEncoding>
+            <server>tomcat7</server>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 </project>

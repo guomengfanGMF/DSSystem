@@ -29,7 +29,6 @@ public class UserController {
         System.out.println("--reg--");
         ModelAndView mav=new ModelAndView();
         System.out.println("--reg--"+"oldUser:"+user);
-
         StringBuffer sb=new StringBuffer();
         for(int i=0;i<6;i++){
             char c=(char)(int)(Math.random()*26+97);
@@ -64,9 +63,20 @@ public class UserController {
         System.out.println("---newUser：--"+user);
         userService.saveUser(user);
 
-
         mav.getModel().put("user",user);
         mav.setViewName("/WEB-INF/jsp/success.jsp");
+        return mav;
+    }
+    //判断账号是否已存在
+    @RequestMapping("/zh")
+    public ModelAndView zh(HttpServletRequest request,HttpServletResponse response,String username){
+        ModelAndView mav=new ModelAndView();
+        String username1=request.getParameter("username");
+        User user=userService.selUserByusername(username1);
+        if(user==null){
+            return null;
+        }
+
         return mav;
     }
 }
