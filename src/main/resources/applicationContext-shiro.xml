@@ -28,7 +28,7 @@
         <property name="securityManager" ref="securityManager"/>
         <property name="loginUrl" value="/login"/>
 
-       <!-- <property name="successUrl" value="/refuse.jsp"/>-->
+        <property name="successUrl" value="/show.jsp"/>
         <property name="filterChainDefinitions">
             <value>
                 <!--可以匿名访问的页面-->
@@ -36,6 +36,7 @@
                 /reg=anon
                 /reg.jsp=anon
                 /login.jsp=anon
+                /zh=anon
                 /js/**=anon
                 <!--退出-->
                 /logout=logout

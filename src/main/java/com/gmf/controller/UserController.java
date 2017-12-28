@@ -5,24 +5,31 @@ import com.gmf.service.UserService;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class UserController {
     @Resource
     private UserService userService;
     @RequestMapping("/login")
-    public void login(HttpServletResponse response, HttpServletRequest request) throws Exception{
+    public  void login(HttpServletResponse response, HttpServletRequest request) throws Exception{
         System.out.println("--login--");
-
+      /*  String username=request.getParameter("username");
+        System.out.println("username:"+username);
+        HttpSession session=request.getSession();
+        session.setAttribute("username",username);*/
         //登录失败之后才跳转
         request.getRequestDispatcher("/login.jsp").forward(request,response);
+
     }
     @RequestMapping("/reg")
     public ModelAndView reg(User user){
@@ -68,17 +75,30 @@ public class UserController {
         return mav;
     }
     //判断账号是否已存在
-  /*  @RequestMapping("/zh")
-    public String zh(HttpServletRequest request,HttpServletResponse response,String username) throws Exception{
-
-        String username1=request.getParameter("username");
-        String username2=userService.selUserByusername(username1);
-        if(username2!=null){
-         username2=new String(username2.getBytes("ISO-8859-1"),"utf-8");
+   @RequestMapping("/zh")
+    public @ResponseBody String zh( String username) throws Exception{
+       System.out.println("--zh--");
+        String name=userService.selUserByname(username);
+       System.out.println("username:"+username+"name:"+name);
+        if(name!=null){
+         name=new String(name.getBytes("ISO-8859-1"),"utf-8");
         }
         String returnString="";
         returnString="已存在";
-        response.getWriter().println(returnString);
         return returnString;
-    }*/
+    }
+
+    @RequestMapping("/selone")
+    public ModelAndView selone(HttpServletRequest request,String username){
+        System.out.println("--selone--");
+        ModelAndView mav=new ModelAndView();
+       /* HttpSession session=request.getSession();
+        String username=(String) session.getAttribute("username");
+        System.out.println("username:"+username);*/
+        List<User> list=userService.selone(username);
+        System.out.println("list:"+list);
+        mav.getModel().put("list",list);
+        mav.setViewName("/myself.jsp");
+        return mav;
+    }
 }

@@ -16,6 +16,17 @@
 <form action="/addPro" method="post" enctype="multipart/form-data">
     商品名称：<input type="text" name="proname"><br/>
     商品简码：<input type="text" name="proJianma"><br/>
+    商品类型：<select name="proType">
+                <option value="手机/数码">手机/数码</option>
+                <option value="家具/家居">家具/家居</option>
+                <option value="服饰">服饰</option>
+             </select><br/>
+    供 应 商：<select name="supplier">
+             <option value="myself">myself</option>
+             <option value="HUAWEI">HUAWEI</option>
+             <option value="OPP0">OPPO</option>
+             <option value="IPHONE">IPHONE</option>
+             </select><br/>
     上传图片：<input type="file" name="proPurl"><br/>
     上架时间：<input type="text"name="proPutawaydate"><br/>
     是否为赠品：<input type="text" name="zengPing"><br/>

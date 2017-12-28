@@ -43,7 +43,7 @@
         #mainDiv {
             width: 100%;
             height: 100%;
-            padding:60px 0px 25px 0px;;
+            padding:60px 0px 25px 0px;
         }
         #centerDiv{
             width: 100%;
@@ -115,12 +115,12 @@
     </div>
     <div id="centerDiv">
         <div id="left">
-         <c:forEach items="${list}" var="list">
-             <a href="/addPro.jsp">${list.typeName}:添加商品信息</a><br/>
-         </c:forEach>
+
         </div>
         <div id="right">
-
+            <c:forEach items="${list}" var="list">
+                <a href="/addPro.jsp">${list.typeName}:添加商品信息</a><br/>
+            </c:forEach>
             </div>
         </div>
     </div>
