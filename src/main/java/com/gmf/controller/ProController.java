@@ -7,6 +7,7 @@ import com.gmf.entity.Supplier;
 import com.gmf.service.ProService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -75,14 +76,15 @@ public class ProController {
     }
     //往商品信息表pro_product中添加商品
     @RequestMapping("/addPro")
-    public ModelAndView addPro(Product product,String proType,String supplier, HttpServletRequest request, HttpServletResponse response, MultipartFile proPurl){
+    public ModelAndView addPro( String proname,String proJianma,String proPutawaydate,String zengPing,String change,HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "proPurl",required = false) MultipartFile proPurl){
         ModelAndView mav=new ModelAndView();
-        System.out.println("--addPro--"+product+"proType:"+proType);
+        System.out.println("--addPro--");
         //根据proType找到商品分类表里的类型id
-         int proTypeID=proService.selTypeIdByproType(proType);
+       //  int proTypeID=proService.selTypeIdByproType(proType);
          //根据supplier找到供应商的id
-         int proSupperlierID=proService.selsnameBysupplier(supplier);
-
+         //int proSupperlierID=proService.selsnameBysupplier(supplier);
+         Product product=new Product();
+        System.out.println(proPurl==null);
         if(proPurl!=null){
             //得到上传文件的旧名字
             String oldName=proPurl.getOriginalFilename();
@@ -125,8 +127,13 @@ public class ProController {
             product.setProPurl(proPath);
             product.setProSPurl(proHttp);
             product.setRegdate(regdate);
-            product.setProTypeID(proTypeID);
-            product.setProSupperlierID(proSupperlierID);
+            product.setProname(proname);
+            product.setProJianma(proJianma);
+            product.setProPutawaydate(proPutawaydate);
+            product.setChange(change);
+            product.setZengPing(zengPing);
+          //  product.setProTypeID(proTypeID);
+           // product.setProSupperlierID(proSupperlierID);
         }
         proService.addPro(product);
         mav.setViewName("/selAllPro");

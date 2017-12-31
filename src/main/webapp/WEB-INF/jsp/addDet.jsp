@@ -12,8 +12,8 @@
     <title>商品明细表</title>
 </head>
 <body>
-<strong>商品图片:</strong> <img src="${product.proSPurl}">
-<strong>商品编码:</strong> <img src="${product.proNum}">
+<strong>商品图片:</strong> <img src="${product.proSPurl}"><br/>
+<strong>商品编码:</strong> ${product.proNum}
 <form action="/savePdet" method="post" enctype="multipart/form-data">
     商品编码：<input type="text" name="pnum"><br/>
     商品描述：<input type="text" name="ddes"><br/>

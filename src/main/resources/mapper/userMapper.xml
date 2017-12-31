@@ -22,6 +22,16 @@
         <result property="mainAddressID" column="USER_ADDID"/>
         <result property="salt" column="SALT"/>
     </resultMap>
+    <resultMap id="selA" type="address">
+        <id property="id" column="ID"/>
+        <result property="userNum" column="USER_NUM"/>
+        <result property="privoce" column="PRIVOCE"/>
+        <result property="city" column="CITY"/>
+        <result property="detAddress" column="ADDRESS_DETAILE"/>
+        <result property="moren" column="YORN_MAIN"/>
+        <result property="use" column="YORN_USE"/>
+        <result property="regdate" column="ADDRESS_REGDATE"/>
+    </resultMap>
 
     <insert id="saveUser" parameterType="user">
         insert into USER_USER(USER_NUM,USER_ZH,USER_PASSWORD,USER_TYPE,USER_CARDNUM,USER_BIRTH,
@@ -39,8 +49,24 @@
     <select id="selUserByname" parameterType="string" resultType="string">
          select USER_ZH from USER_USER where USER_ZH=#{name}
     </select>
-    <select id="selone" parameterType="string" resultMap="selU">
-        select * from USER_USER where USER_ZH=#{name}
+    <update id="updateOne" parameterType="user">
+        update  USER_USER set USER_PASSWORD=#{user.password},USER_BIRTH=#{use.userBirth},USER_EMAIL=#{use.userEmail}
+        ,USER_PHONE=#{user.userPhone} where USER_ZH=#{user.username}
+    </update>
+    <select id="selAddByunum" parameterType="string" resultMap="selA">
+        select * from user_address where USER_NUM=#{unum}
     </select>
-
+    <insert id="addAddbyunum" parameterType="address">
+        insert into user_address(USER_NUM,PRIVOCE,CITY,ADDRESS_DETAILE,YORN_MAIN,YORN_USE,ADDRESS_REGDATE)
+         values(#{userNum},#{province},#{city},#{detAddress},#{moren},#{use},#{regdate})
+    </insert>
+    <delete id="delAddByunum" parameterType="int">
+        delete from user_address  where id=#{id}
+    </delete>
+    <select id="findAllProvince"  resultType="province">
+        SELECT *  FROM province
+    </select>
+    <select id="findAllCityByProvincename"  parameterType="string" resultType="city">
+        SELECT c.*  FROM province p LEFT JOIN city c ON p.id=c.province_id WHERE p.name=#{provincename}
+    </select>
 </mapper>

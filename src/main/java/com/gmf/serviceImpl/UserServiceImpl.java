@@ -1,8 +1,12 @@
 package com.gmf.serviceImpl;
 
+import com.gmf.entity.Address;
+import com.gmf.entity.City;
+import com.gmf.entity.Province;
 import com.gmf.entity.User;
 import com.gmf.mapper.UserMapper;
 import com.gmf.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -30,8 +34,30 @@ public class UserServiceImpl implements UserService{
         return userMapper.selUserByname(name);
     }
 
-    public List<User> selone(String name) {
-        return userMapper.selone(name);
+    public void updateOne(User user) {
+        userMapper.updateOne(user);
     }
+
+    public List<Address> selAddByunum(String unum) {
+        return userMapper.selAddByunum(unum);
+    }
+
+    public void addAddbyunum(Address address) {
+        userMapper.addAddbyunum(address);
+    }
+
+    public void delAddByunum(int id) {
+        System.out.println("--seviceImpl:id---"+id);
+        userMapper.delAddByunum(id);
+    }
+
+    public List<Province> findAllProvince() {
+        return userMapper.findAllProvince();
+    }
+
+    public List<City> findAllCityByProvincename(String provincename) {
+        return userMapper.findAllCityByProvincename(provincename);
+    }
+
 
 }

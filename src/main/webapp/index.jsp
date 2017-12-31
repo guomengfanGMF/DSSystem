@@ -7,7 +7,7 @@
         #topDiv{
             width:100%;
             height:56px;
-            background:blue;
+            background:white;
             position:absolute;
             top:0px;
             overflow:hidden;
@@ -133,11 +133,18 @@
 <body>
 <div id="mainDiv">
     <div id="topDiv">
+        <a href="/login.jsp">登录</a><br/>
+        <a href="/reg.jsp">注册</a><br/>
         <div id="right2">
-            <a href="/login.jsp">登录</a><br/>
-            <a href="/reg.jsp">注册</a><br/>
         </div>
-        <div id="tmenu"></div>
+        <div id="tmenu">
+            <h3><a href="">秒杀</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="">优惠券</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="" >闪购</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="">金融</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="">超市</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="">全球购</a></h3>
+        </div>
     </div>
     <div id="centerDiv">
         <div id="left">
@@ -172,6 +179,7 @@
         <div id="right">
 
         </div>
+
     </div>
 </div>
 </div>

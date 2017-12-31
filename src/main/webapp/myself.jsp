@@ -58,24 +58,22 @@
         <th>默认收件地址</th>
     </tr>
     </thead>
-    <c:forEach items="${list}" var="list">
         <tr>
-            <th>${list.userNum}</th>
-            <th>${list.username}</th>
-            <th>${list.userType}</th>
-            <th>${list.userCardnum}</th>
-            <th>${list.userBirth}</th>
-            <th>${list.userRealname}</th>
-            <th>${list.userRegdate}</th>
-            <th>${list.userCredits}</th>
-            <th>${list.userBalance}</th>
-            <th>${list.userEmail}</th>
-            <th>${list.userTotalmoney}</th>
-            <th>${list.userPhone}</th>
-            <th>${list.mainAddressID}</th>
-            <th><a href="/selectGoodsById.action?Gid=${list.userNum}">详情</a>|<a href="/deleteGoodsById.action?id=${list.userNum}">修改</a></th>
+            <th>${user.userNum}</th>
+            <th>${user.username}</th>
+            <th>${user.userType}</th>
+            <th>${user.userCardnum}</th>
+            <th>${user.userBirth}</th>
+            <th>${user.userRealname}</th>
+            <th>${user.userRegdate}</th>
+            <th>${user.userCredits}</th>
+            <th>${user.userBalance}</th>
+            <th>${user.userEmail}</th>
+            <th>${user.userTotalmoney}</th>
+            <th>${user.userPhone}</th>
+            <th>${user.mainAddressID}<a href="/selAddByunum?unum=${user.userNum}">【查看详情】</a></th>
+            <th><a href="/updateOne.jsp">修改</a></th>
         </tr>
-    </c:forEach>
 </table>
 </div>
 <div>

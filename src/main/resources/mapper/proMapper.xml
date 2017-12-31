@@ -60,7 +60,7 @@
     <select id="selAllPro" resultMap="selP">
         select * from pro_product
     </select>
-    <select id="selProurl" parameterType="int" resultType="selP">
+    <select id="selProurl" parameterType="int" resultMap="selP">
         select * from pro_product where ID=#{id}
     </select>
     <insert id="savePdet" parameterType="prodet">

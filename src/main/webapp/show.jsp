@@ -148,7 +148,7 @@
 <div id="mainDiv">
     <div id="topDiv">
         <div id="tmenu">
-            <a href="/selone">个人中心</a>
+            <a href="/myself.jsp">个人中心</a>
             <a href="">购物车</a>
             <a href="">全部订单</a>
         </div>

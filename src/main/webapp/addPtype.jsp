@@ -21,7 +21,7 @@
                      <option value="家具/家居">家具/家居</option>
                      <option value="服饰">服饰</option>
                  </select>
-        是否可用：<input type="text" name="use"><br/>
+        是否可用：<input type="checkbox" name="use"><br/>
             供 应 商：
             <select name="sname">
                 <option value="myself">myself</option>
