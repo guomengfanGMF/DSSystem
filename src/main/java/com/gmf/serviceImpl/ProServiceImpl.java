@@ -59,4 +59,13 @@ public class ProServiceImpl implements ProService {
         return proMapper.selPdturl(id);
     }
 
+    public List<Prodet> selOneProdet(String pnum) {
+        return proMapper.selOneProdet(pnum);
+    }
+
+    public String selOneproNum(String proname) {
+        System.out.println("--ServiceImpl--"+proMapper.selOneproNum(proname));
+        return proMapper.selOneproNum(proname);
+    }
+
 }

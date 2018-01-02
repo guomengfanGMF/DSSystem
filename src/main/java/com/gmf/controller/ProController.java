@@ -76,14 +76,14 @@ public class ProController {
     }
     //往商品信息表pro_product中添加商品
     @RequestMapping("/addPro")
-    public ModelAndView addPro( String proname,String proJianma,String proPutawaydate,String zengPing,String change,HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "proPurl",required = false) MultipartFile proPurl){
+    public ModelAndView addPro(String proType,String supplier, Product product,HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "proPurl",required = false) MultipartFile proPurl){
         ModelAndView mav=new ModelAndView();
-        System.out.println("--addPro--");
+        System.out.println("--addPro--"+product+",proType:"+proType+",supplier:"+supplier);
         //根据proType找到商品分类表里的类型id
-       //  int proTypeID=proService.selTypeIdByproType(proType);
+       // int proTypeID=proService.selTypeIdByproType(proType);
          //根据supplier找到供应商的id
-         //int proSupperlierID=proService.selsnameBysupplier(supplier);
-         Product product=new Product();
+       // int proSupperlierID=proService.selsnameBysupplier(supplier);
+       /*  Product product=new Product();*/
         System.out.println(proPurl==null);
         if(proPurl!=null){
             //得到上传文件的旧名字
@@ -127,15 +127,13 @@ public class ProController {
             product.setProPurl(proPath);
             product.setProSPurl(proHttp);
             product.setRegdate(regdate);
-            product.setProname(proname);
-            product.setProJianma(proJianma);
-            product.setProPutawaydate(proPutawaydate);
-            product.setChange(change);
-            product.setZengPing(zengPing);
-          //  product.setProTypeID(proTypeID);
-           // product.setProSupperlierID(proSupperlierID);
+           // product.setProTypeID(proTypeID);
+            //product.setProSupperlierID(proSupperlierID);
+         /*   product.setProPutawaydate(proPutawaydate);*/
+
         }
         proService.addPro(product);
+        System.out.println("newProduct:"+product);
         mav.setViewName("/selAllPro");
         return mav;
     }
@@ -191,7 +189,8 @@ public class ProController {
                 sb.append(c);
             }
             String salt=sb.toString();
-            prodet.setDnum(salt);
+            String mxnum=newDate+salt;
+            prodet.setDnum(mxnum);
             prodet.setDurl(proPath);
             prodet.setDsurl(proHttp);
             prodet.setRegdate(regdate);
@@ -220,4 +219,26 @@ public class ProController {
         mav.setViewName("/WEB-INF/jsp/dsurl.jsp");
         return mav;
     }
+
+    /**
+     *点击华为畅享7s proname="华为畅享7s"  pnum=proNum="HUAWEIhgjxml"
+     * 根据名字查找到编码---根据商品编码查找到商品明细得到内容显示到页面上
+     */
+    @RequestMapping("/selOneProdet")
+    public ModelAndView selOneProdet(String proname){
+        System.out.println("proname："+proname);
+        ModelAndView mav=new ModelAndView();
+        //根据proname查询商品编码
+        String pnum=proService.selOneproNum(proname);
+        System.out.println("proname:"+proname+",pnum:"+pnum);
+        //根据编码查询明细
+        List<Prodet> list=proService.selOneProdet(pnum);
+        mav.getModel().put("list",list);
+        System.out.println("list:"+list);
+        mav.setViewName("/huawei7s.jsp");
+        return mav;
+    }
+
+
+
 }

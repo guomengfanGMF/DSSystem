@@ -17,5 +17,6 @@ public interface UserService {
     public void delAddByunum(int id);
     public List<Province> findAllProvince();
     public List<City> findAllCityByProvincename(String provincename);
+    public void updateAddByunum(Address address);
 
 }

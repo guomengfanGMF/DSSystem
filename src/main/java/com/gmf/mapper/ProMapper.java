@@ -21,4 +21,6 @@ public interface ProMapper {
     public void savePdet(Prodet prodet);
     public List<Prodet> selAllprodetBypnum(Prodet prodet);
     public String selPdturl(int id);
+    public List<Prodet> selOneProdet(String pnum);
+    public String selOneproNum(String proname);
 }

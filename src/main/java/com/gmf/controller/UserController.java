@@ -150,9 +150,22 @@ public class UserController {
     }
     //修改地址信息
     @RequestMapping("/updateAddByunum")
-    public ModelAndView updateAddByunum(String unum ){
+    public ModelAndView updateAddByunum(Address address,HttpServletRequest request ){
         ModelAndView mav=new ModelAndView();
+        System.out.println("oldAddress:"+address);
+        HttpSession session=request.getSession();
+        User user=(User) session.getAttribute("user");
+        System.out.println("username:"+user.getUserNum()+"id:"+address.getId());
+        String unum=user.getUserNum();
 
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        String newDate = sdf.format(date);
+
+        address.setUserNum(unum);
+        address.setRegdate(newDate);
+        //根据id进行修改
+        userService.updateAddByunum(address);
         mav.setViewName("/selAddByunum");
         return mav;
     }

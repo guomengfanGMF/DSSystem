@@ -19,4 +19,5 @@ public interface UserMapper {
     public List<Province> findAllProvince();
     //省份
     public List<City> findAllCityByProvincename(String provincename);
+    public void updateAddByunum(Address address);
 }

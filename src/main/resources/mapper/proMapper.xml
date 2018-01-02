@@ -51,7 +51,7 @@
         select ID from pro_ptype where PTYPE_NAME=#{proType}
     </select>
     <select id="selsnameBysupplier" parameterType="string" resultType="int">
-        select SUPPLIER_NAME from pro_supplier where SUPPLIER_NAME=#{supplier}
+        select ID from pro_supplier where SUPPLIER_NAME=#{supplier}
     </select>
     <insert id="saveSupplier" parameterType="supplier">
         insert into pro_supplier(SUPPLIER_NUM,SUPPLIER_NAME,SUPPLIER_COMMPANY,SUPPLIER_ADDRESS,SUPPLIER_REGDATE)
@@ -72,5 +72,11 @@
     </select>
     <select id="selPdturl" parameterType="int" resultType="string">
         select PRO_SHOWPURL from pro_detaile where ID=#{id}
+    </select>
+    <select id="selOneproNum" parameterType="string" resultType="string">
+        select PRO_NUM from pro_product where PRO_NAME=#{proname}
+    </select>
+    <select id="selOneProdet" parameterType="string" resultMap="selDet">
+        select * from pro_detaile where PRO_NUM=#{pnum}
     </select>
 </mapper>

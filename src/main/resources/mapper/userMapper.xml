@@ -25,7 +25,7 @@
     <resultMap id="selA" type="address">
         <id property="id" column="ID"/>
         <result property="userNum" column="USER_NUM"/>
-        <result property="privoce" column="PRIVOCE"/>
+        <result property="province" column="PROVINCE"/>
         <result property="city" column="CITY"/>
         <result property="detAddress" column="ADDRESS_DETAILE"/>
         <result property="moren" column="YORN_MAIN"/>
@@ -57,7 +57,7 @@
         select * from user_address where USER_NUM=#{unum}
     </select>
     <insert id="addAddbyunum" parameterType="address">
-        insert into user_address(USER_NUM,PRIVOCE,CITY,ADDRESS_DETAILE,YORN_MAIN,YORN_USE,ADDRESS_REGDATE)
+        insert into user_address(USER_NUM,PROVINCE,CITY,ADDRESS_DETAILE,YORN_MAIN,YORN_USE,ADDRESS_REGDATE)
          values(#{userNum},#{province},#{city},#{detAddress},#{moren},#{use},#{regdate})
     </insert>
     <delete id="delAddByunum" parameterType="int">
@@ -69,4 +69,8 @@
     <select id="findAllCityByProvincename"  parameterType="string" resultType="city">
         SELECT c.*  FROM province p LEFT JOIN city c ON p.id=c.province_id WHERE p.name=#{provincename}
     </select>
+    <update id="updateAddByunum" parameterType="address">
+        update user_address set PROVINCE=#{province},CITY=#{city},ADDRESS_DETAILE=#{detAddress},YORN_MAIN=#{moren},
+        YORN_USE=#{use},ADDRESS_REGDATE=#{regdate} where ID=#{id}
+    </update>
 </mapper>

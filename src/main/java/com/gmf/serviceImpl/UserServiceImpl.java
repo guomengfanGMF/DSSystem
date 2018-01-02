@@ -59,5 +59,9 @@ public class UserServiceImpl implements UserService{
         return userMapper.findAllCityByProvincename(provincename);
     }
 
+    public void updateAddByunum(Address address) {
+        userMapper.updateAddByunum(address);
+    }
+
 
 }

@@ -443,9 +443,15 @@
 			<img src="/img/1.jpg" class="item first">
 			<img src="/img/2.jpg" class="item">
 			<img src="/img/3.jpg" class="item">
-			<img src="/img/1.jpg" class="item">
+			<img src="/img/4.jpg" class="item">
 			<img src="/img/2.jpg" class="item">
 			<img src="/img/3.jpg" class="item">
+			<%--<img src="holder.js/img/2.jpg" class="item first">
+			<img src="holder.js/1226x430?text=图2&bg=D6B572" class="item">
+			<img src="holder.js/1226x430?text=图3&bg=F46D78" class="item">
+			<img src="holder.js/1226x430?text=图4&bg=EFEBD9" class="item">
+			<img src="holder.js/1226x430?text=图5&bg=B1B336" class="item">
+			<img src="holder.js/1226x430?text=图6&bg=EBBFA2" class="item">--%>
 		</div>
 		<div class="carousel-btn">
 			<a href="javascript:" class="btn active"></a>
@@ -3037,6 +3043,7 @@
 </body>
 <script src="js/main.js"></script>
 <script src="js/holder.min.js"></script>
+<script src="js/holder.js"></script>
 <script>
 
 </script>

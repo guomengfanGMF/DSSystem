@@ -10,119 +10,93 @@
 <html>
 <head>
     <title>商品展示页</title>
-    <style type="text/css">
-        #topDiv{
-            width:100%;
-            height:56px;
-            background:blue;
-            position:absolute;
-            top:0px;
-            overflow:hidden;
-        }
-        * {
-            margin:0px;
-            padding:0px;
-        }
-        html, body{
-            height:100%;
-            overflow: hidden;
-        }
-        html>body{
-            width: auto;
-            height: auto;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            right: 0px;
-            bottom: 0px;
-        }
-        body {
-            border:8px solid #ffffff;
-            background-color: #ffffff;min-width:230px;
-        }
-        #mainDiv {
-            width: 100%;
-            height: 100%;
-            padding:60px 0px 25px 0px;
-        }
-        #centerDiv{
-            width: 100%;
-            height: 100%;
-            background-color:#00CCFF;
-            padding-left:158px;
-        }
-        #mainDiv>#centerDiv{
-            width: auto;
-            height: auto;
-            position: absolute;
-            top: 56px;
-            left: 0px;
-            right: 0px;
-            bottom: 20px;
-        }
-        #left{
-            width:158px;
-            height:100%;
-            background:#00CCFF;
-            position:absolute;
-            left:0px;
-        }
-        #right{
-            width:100%;
-            height:100%;
-            background:#ffffff;
-            position:absolute;
-            overflow-y:auto;
-            border:1px #003366 solid;
-            padding:20px 0 0 10px;
-            font-size:12px;
-            font-family:"宋体";
-        }
-        #centerDiv>#right{
-            width:auto;
-            height:auto;
-            position:absolute;
-            top:0px;
-            right:0px;
-            left:158px;
-            bottom:0px;
-        }
-        #tmenu{
-            width:100%;
-            position:absolute;
-            left:12%;
-            bottom:0;
-            padding-left:15%;
-            margin-left:-15%;
-        }
-        #left ul{
-            list-style:none;
-            font-size:12px;
-            margin:50px 0 0 8px;
-        }
-        #form{
-            width:80%;
-            height:99%;
-            margin:0 auto;
-            _margin-left:20%;
-        }
-    </style>
+    <link href="css/custom.css" rel="stylesheet">
+
 </head>
 <body>
-<div id="mainDiv">
-    <div id="topDiv">
-        <div id="tmenu"></div>
-    </div>
-    <div id="centerDiv">
-        <div id="left">
+<div id="wrapper">
+    <nav class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <a href="/myself.jsp">个人基本信息</a>
+                    </li>
+                    <li>
+                        <a href="#">我要开店</a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="addPtype.jsp">添加商品种类</a>
+                            </li>
+                            <li>
+                                <a href="/selAllPtype">查看所有的商品分类</a>
+                            </li>
+                            <li>
+                                <a href="/addPro.jsp">添加商品</a>
+                            </li>
+                            <li>
+                                <a href="/selAllPro">查看所有商品</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">收件地址管理</a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/selAddByunum">查看所有收件地址</a>
+                            </li>
+                            <li>
+                                <a href="/addAdd.jsp">添加收件地址</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">个人银行卡信息</a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="inbox.html">查看已添加的银行卡</a>
+                            </li>
+                        </ul>
+                    </li>
 
+                    <li>
+                        <a href="#">积分与代金券</a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="forms.html">积分</a>
+                            </li>
+                            <li>
+                                <a href="validation.html">代金券</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">订单信息</a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="basic_tables.html">所有订单</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">个人商品评价</a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="media.html">已评价</a>
+                            </li>
+                            <li>
+                                <a href="login.html">待评价</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div id="right">
+    </nav>
+    <div id="page-wrapper">
             <c:forEach items="${list}" var="list">
                 <a href="/addPro.jsp">${list.typeName}:添加商品信息</a><br/>
             </c:forEach>
-            </div>
-        </div>
     </div>
 </div>
 </body>

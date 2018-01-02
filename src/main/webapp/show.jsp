@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>**官方网站</title>
-    <!-- <link rel="shortcut icon" href="http://s01.mifile.cn/favicon.ico" type="image/x-icon"> -->
     <link rel="stylesheet" href="css/main.css">
-    <%--<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>--%>
     <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
@@ -62,8 +60,8 @@
                             <li class="side-item"><a href="#">手机 数码<i class="iconfont">&#xe6a7;</i></a>
                                 <div class="children-nav">
                                     <ul class="children-list">
-                                        <li><a href="#" class="link"><img src="img/icon/holder_40.png" class="icon-80"><span class="title">华为</span></a><a href="#" class="buybtn">选购</a></li>
-                                        <li><a href="#" class="link"><img src="img/icon/xm5_80.png" class="icon-80"><span class="title">华为</span></a><a href="#" class="buybtn">选购</a></li>
+                                        <li><a href="/selOneProdet?proname=华为Mate10Pro" class="link"><img src="img/icon/holder_40.png" class="icon-80"><span class="title">华为Mate10Pro</span></a><a href="/selOneProdet?proname=华为Mate10Pro" class="buybtn">选购</a></li>
+                                        <li><a href="/selOneProdet?proname=华为畅享7s" class="link"><img src="img/icon/xm5_80.png" class="icon-80"><span class="title">华为畅享7s</span></a><a href="/selOneProdet?proname=华为畅享7s" class="buybtn">选购</a></li>
                                         <li><a href="#" class="link"><img src="img/icon/max2_80.jpg" class="icon-80"><span class="title">华为</span></a><a href="#" class="buybtn">选购</a></li>
                                         <li><a href="#" class="link"><img src="img/icon/5c_80.png" class="icon-80"><span class="title">华为</span></a><a href="#" class="buybtn">选购</a></li>
                                         <li><a href="#" class="link"><img src="img/icon/xmNOTE2_80.jpg" class="icon-80"><span class="title">华为</span></a><a href="#" class="buybtn">选购</a></li>
@@ -443,9 +441,15 @@
         <img src="/img/1.jpg" class="item first">
         <img src="/img/2.jpg" class="item">
         <img src="/img/3.jpg" class="item">
-        <img src="/img/1.jpg" class="item">
+        <img src="/img/4.jpg" class="item">
         <img src="/img/2.jpg" class="item">
         <img src="/img/3.jpg" class="item">
+       <%-- <img src="holder.js/img/2.jpg" class="item first">
+        <img src="holder.js/1226x430?text=图2&bg=D6B572" class="item">
+        <img src="holder.js/1226x430?text=图3&bg=F46D78" class="item">
+        <img src="holder.js/1226x430?text=图4&bg=EFEBD9" class="item">
+        <img src="holder.js/1226x430?text=图5&bg=B1B336" class="item">
+        <img src="holder.js/1226x430?text=图6&bg=EBBFA2" class="item">--%>
     </div>
     <div class="carousel-btn">
         <a href="javascript:" class="btn active"></a>
@@ -3037,6 +3041,7 @@
 </body>
 <script src="js/main.js"></script>
 <script src="js/holder.min.js"></script>
+<script src="js/holder.js"></script>
 <script>
 
 </script>
