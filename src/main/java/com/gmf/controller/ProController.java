@@ -235,7 +235,7 @@ public class ProController {
         List<Prodet> list=proService.selOneProdet(pnum);
         mav.getModel().put("list",list);
         System.out.println("list:"+list);
-        mav.setViewName("/huawei7s.jsp");
+        mav.setViewName("/goods.jsp");
         return mav;
     }
 
