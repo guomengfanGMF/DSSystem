@@ -67,8 +67,8 @@
         insert into pro_detaile(PRO_NUM,PRO_DETAILENUM,PRO_DES,PRO_PURL,PRO_SHOWPURL,PRO_CHENGBEN,PRO_SHOUJIA,YORN_USE
         ,PRO_REGDATE) values(#{pnum},#{dnum},#{ddes},#{durl},#{dsurl},#{chengben},#{shoujia},#{use},#{regdate})
     </insert>
-    <select id="selAllprodetBypnum" parameterType="prodet" resultMap="selDet">
-        select * from pro_detaile where PRO_NUM=#{prodet.pnum}
+    <select id="selAllprodet"  resultMap="selDet">
+        select * from pro_detaile
     </select>
     <select id="selPdturl" parameterType="int" resultType="string">
         select PRO_SHOWPURL from pro_detaile where ID=#{id}

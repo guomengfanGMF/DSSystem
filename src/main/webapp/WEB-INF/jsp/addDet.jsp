@@ -19,7 +19,7 @@
     商品描述：<input type="text" name="ddes"><br/>
     成本价格：<input type="text" name="chengben"><br/>
     售    价：<input type="text" name="shoujia"><br/>
-    是否可用：<input type="text" name="use"><br/>
+    是否可用：<input type="checkbox" name="use"><br/>
     添加图片：<input type="file" name="durl"><br/>
     <input type="submit" value="添加">
     <input type="reset" value="重置">

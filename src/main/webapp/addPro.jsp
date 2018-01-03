@@ -44,6 +44,9 @@
                             <li>
                                 <a href="/selAllPro">查看所有商品</a>
                             </li>
+                            <li>
+                                <a href="/selAllprodet">查看所有商品明细</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -106,12 +109,12 @@
 <form action="/addPro" method="post" enctype="multipart/form-data">
     商品名称：<input type="text" name="proname"><br/>
     商品简码：<input type="text" name="proJianma"><br/>
-   商品类型：<select name="proType" id="proType">
+   商品类型：<select name="proType">
                 <option value="手机/数码">手机/数码</option>
                 <option value="家具/家居">家具/家居</option>
                 <option value="服饰">服饰</option>
              </select><br/>
-    供 应 商：<select name="supplier" id="supplier">
+    供 应 商：<select name="supplier">
              <option value="myself">myself</option>
              <option value="HUAWEI">HUAWEI</option>
              <option value="OPP0">OPPO</option>

@@ -51,8 +51,8 @@ public class ProServiceImpl implements ProService {
         proMapper.savePdet(prodet);
     }
 
-    public List<Prodet> selAllprodetBypnum(Prodet prodet) {
-        return proMapper.selAllprodetBypnum(prodet);
+    public List<Prodet> selAllprodet() {
+        return proMapper.selAllprodet();
     }
 
     public String selPdturl(int id) {

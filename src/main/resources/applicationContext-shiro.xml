@@ -40,6 +40,7 @@
                 /js/**=anon
                 /css/**=anon
                 /img/**=anon
+                /images/**=anon
                 <!--退出-->
                 /logout=logout
                 <!--需要认证的请求 所有/**=authc-->

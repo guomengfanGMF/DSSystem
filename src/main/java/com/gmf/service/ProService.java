@@ -17,7 +17,7 @@ public interface ProService {
     public List<Product> selAllPro();
     public Product selProurl(int id);
     public void savePdet(Prodet prodet);
-    public List<Prodet> selAllprodetBypnum(Prodet prodet);
+    public List<Prodet> selAllprodet();
     public String selPdturl(int id);
     public List<Prodet> selOneProdet(String pnum);
     public String selOneproNum(String proname);

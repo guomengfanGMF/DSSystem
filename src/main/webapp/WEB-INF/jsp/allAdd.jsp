@@ -43,6 +43,9 @@
                             <li>
                                 <a href="/selAllPro">查看所有商品</a>
                             </li>
+                            <li>
+                                <a href="/selAllprodet">查看所有商品明细</a>
+                            </li>
                         </ul>
                     </li>
                     <li>

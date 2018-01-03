@@ -75,30 +75,35 @@ public class ProController {
         return mav;
     }
     //往商品信息表pro_product中添加商品
-    @RequestMapping("/addPro")
-    public ModelAndView addPro(String proType,String supplier, Product product,HttpServletRequest request, HttpServletResponse response, @RequestParam(name = "proPurl",required = false) MultipartFile proPurl){
+   @RequestMapping("/addPro")
+    public ModelAndView addPro(String proType,String supplier, String proname,String proJianma,String proPutawaydate,String zengPing,String change,HttpServletRequest request, HttpServletResponse response,MultipartFile proPurl)
+    throws Exception{
         ModelAndView mav=new ModelAndView();
-        System.out.println("--addPro--"+product+",proType:"+proType+",supplier:"+supplier);
+        System.out.println("--addPro--"+proname+",proType:"+proType+",supplier:"+supplier);
         //根据proType找到商品分类表里的类型id
-       // int proTypeID=proService.selTypeIdByproType(proType);
+       int proTypeID=proService.selTypeIdByproType(proType);
          //根据supplier找到供应商的id
-       // int proSupperlierID=proService.selsnameBysupplier(supplier);
-       /*  Product product=new Product();*/
+        int proSupperlierID=proService.selsnameBysupplier(supplier);
+        Product product=new Product();
         System.out.println(proPurl==null);
         if(proPurl!=null){
             //得到上传文件的旧名字
             String oldName=proPurl.getOriginalFilename();
+            System.out.println("oldname:"+oldName);
             String newName= UUID.randomUUID()+oldName.substring(oldName.lastIndexOf("."));
+            System.out.println("newName:"+newName);
             String proPath=request.getSession().getServletContext().getRealPath("/");
             //图片上传的路径
             proPath=proPath+"/images/"+newName;
             //图片显示的路径
             String proHttp=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()+"/images/"+newName;
 
-            File file=new File(proHttp);
+            File file=new File(proPath);
             if(!file.getParentFile().exists()){
                 file.getParentFile().mkdirs();
             }
+            //上传文件
+            proPurl.transferTo(file);
 
             Date date = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
@@ -106,31 +111,24 @@ public class ProController {
             String regdate=newDate;
             System.out.println("date:"+regdate);
 
-            /**
-             *保存商品信息表时：供应商
-             * 从addPro.jsp页面得到用户所选择的供应商（下拉列表）
-             * 如果是个人就选个人
-             * 如果是公司就判断是什么公司，从供应商表里得到供应商ID
-             * proSupperlierID
-             */
-
-
             StringBuffer sb=new StringBuffer();
             for(int i=0;i<6;i++){
                 char c=(char)(int)(Math.random()*26+97);
                 sb.append(c);
             }
             String salt=sb.toString();
-            String proNum=product.getProJianma()+salt;
+            String proNum=proJianma+salt;
 
             product.setProNum(proNum);
             product.setProPurl(proPath);
             product.setProSPurl(proHttp);
             product.setRegdate(regdate);
-           // product.setProTypeID(proTypeID);
-            //product.setProSupperlierID(proSupperlierID);
-         /*   product.setProPutawaydate(proPutawaydate);*/
-
+            product.setProname(proname);
+            product.setProJianma(proJianma);
+            product.setProPutawaydate(proPutawaydate);
+            product.setProTypeID(proTypeID);
+            product.setProSupperlierID(proSupperlierID);
+         //  product.setProPutawaydate(proPutawaydate);
         }
         proService.addPro(product);
         System.out.println("newProduct:"+product);
@@ -156,13 +154,17 @@ public class ProController {
     public ModelAndView selProurl(int id){
         ModelAndView mav=new ModelAndView();
          Product product=proService.selProurl(id);
+
         mav.getModel().put("product",product);
         mav.setViewName("/WEB-INF/jsp/addDet.jsp");
         return mav;
     }
     @RequestMapping("/savePdet")
-    public ModelAndView savePdet(Prodet prodet, HttpServletRequest request, HttpServletResponse response, MultipartFile durl){
-        System.out.println("--savePdet:oldprodet:--"+prodet);
+    public ModelAndView savePdet(String  pnum,String ddes,String chengben,String shoujia,String use, HttpServletRequest request, HttpServletResponse response, MultipartFile durl)
+        throws Exception{
+        System.out.println("--savePdet:oldprodet:--"+pnum);
+        Prodet prodet=new Prodet();
+
         ModelAndView mav=new ModelAndView();
         if(durl!=null){
             String oldName=durl.getOriginalFilename();
@@ -173,10 +175,14 @@ public class ProController {
             //图片显示的路径
             String proHttp=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath()+"/images/"+newName;
 
-          File file=new File(proHttp);
+            //注意上传路径不要放错
+          File file=new File(proPath);
           if(!file.getParentFile().exists()){
               file.getParentFile().mkdirs();
           }
+          //上传文件
+            durl.transferTo(file);
+
             Date date = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
             String newDate = sdf.format(date);
@@ -194,19 +200,23 @@ public class ProController {
             prodet.setDurl(proPath);
             prodet.setDsurl(proHttp);
             prodet.setRegdate(regdate);
+            prodet.setPnum(pnum);
+            prodet.setChengben(chengben);
+            prodet.setShoujia(shoujia);
+            prodet.setDdes(ddes);
 
             proService.savePdet(prodet);
             System.out.println("newProdet:"+prodet);
             mav.getModel().put("prodet",prodet);
-            mav.setViewName("/selAllprodetBypnum");
+            mav.setViewName("/selAllprodet");
         }
         return mav;
     }
-
-    @RequestMapping("/selAllprodetBypnum")
-    public ModelAndView selAllprodetBypnum(Prodet prodet){
+    //查看所有的商品明细
+    @RequestMapping("/selAllprodet")
+    public ModelAndView selAllprodet(){
         ModelAndView mav=new ModelAndView();
-        List<Prodet>list=proService.selAllprodetBypnum(prodet);
+        List<Prodet>list=proService.selAllprodet();
         mav.getModel().put("list",list);
         mav.setViewName("/WEB-INF/jsp/showDet.jsp");
         return mav;
@@ -239,6 +249,15 @@ public class ProController {
         return mav;
     }
 
+    /**
+     * 先查询product里面的7s
+     */
+    @RequestMapping("/selProOne")
+    public ModelAndView selProOne(String proname){
+        ModelAndView mav=new ModelAndView();
+        //根据proname拿到所有的7s的图片和描述之类的
+        return mav;
+    }
 
 
 }
