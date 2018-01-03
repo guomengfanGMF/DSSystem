@@ -249,15 +249,5 @@ public class ProController {
         return mav;
     }
 
-    /**
-     * 先查询product里面的7s
-     */
-    @RequestMapping("/selProOne")
-    public ModelAndView selProOne(String proname){
-        ModelAndView mav=new ModelAndView();
-        //根据proname拿到所有的7s的图片和描述之类的
-        return mav;
-    }
-
 
 }
