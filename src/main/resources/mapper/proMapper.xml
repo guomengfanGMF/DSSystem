@@ -79,4 +79,13 @@
     <select id="selOneProdet" parameterType="string" resultMap="selDet">
         select * from pro_detaile where PRO_NUM=#{pnum}
     </select>
+    <select id="selOnepro" parameterType="string" resultMap="selP">
+        select * from pro_product where PRO_NAME=#{proname}
+    </select>
+    <insert id="addgwc" parameterType="gwc">
+        insert into gwc(name,miaoshu,danjia,shuliang,userNum) values(#{name},#{miaoshu},#{danjia},#{shuliang},#{userNum})
+    </insert>
+    <select id="selAllgwc" parameterType="String" resultType="gwc">
+        select * from gwc where userNum=#{userNum}
+    </select>
 </mapper>

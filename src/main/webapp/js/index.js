@@ -1,9 +1,4 @@
-/**
- * Created with JetBrains WebStorm.
- * User: Hxx
- * Date: 14-11-26
- * 首页页面效果.
- */
+
 $(document).ready(function(){
     SetShortCutEffect();//设置顶部快捷菜单效果
     SetCartEffect();//设置购物车效果

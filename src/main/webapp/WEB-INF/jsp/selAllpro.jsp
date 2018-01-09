@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>商品信息表</title>
-    <link href="css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css" >
     <link rel="stylesheet" href="css/jquery.pagination.css" />
     <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
     <script src="js/jquery.pagination.min.js"></script>

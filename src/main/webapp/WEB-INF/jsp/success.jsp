@@ -11,6 +11,9 @@
     <title>成功</title>
 </head>
 <body>
-success ${user.userNum}
+success ${username}
+${phone}
+${address} ${list}
+</div>
 </body>
 </html>

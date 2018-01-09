@@ -63,5 +63,9 @@ public class UserServiceImpl implements UserService{
         userMapper.updateAddByunum(address);
     }
 
+    public List<Address> selAddByuserNum(String userNum) {
+        return userMapper.selAddByuserNum(userNum);
+    }
+
 
 }

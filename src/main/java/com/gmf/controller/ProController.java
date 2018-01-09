@@ -1,10 +1,9 @@
 package com.gmf.controller;
 
-import com.gmf.entity.Prodet;
-import com.gmf.entity.Product;
-import com.gmf.entity.Ptype;
-import com.gmf.entity.Supplier;
+import com.gmf.entity.*;
 import com.gmf.service.ProService;
+import com.gmf.service.UserService;
+import org.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,8 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -24,7 +26,8 @@ import java.util.UUID;
 public class ProController {
     @Resource
     private ProService proService;
-
+    @Resource
+    private UserService userService;
     /**
      *商品分类表--商品信息表--商品明细表
      */
@@ -236,7 +239,7 @@ public class ProController {
      */
     @RequestMapping("/selOneProdet")
     public ModelAndView selOneProdet(String proname){
-        System.out.println("proname："+proname);
+        System.out.println("selOneProdet:::::proname："+proname);
         ModelAndView mav=new ModelAndView();
         //根据proname查询商品编码
         String pnum=proService.selOneproNum(proname);
@@ -244,10 +247,88 @@ public class ProController {
         //根据编码查询明细
         List<Prodet> list=proService.selOneProdet(pnum);
         mav.getModel().put("list",list);
+        mav.getModel().put("proname",proname);
         System.out.println("list:"+list);
         mav.setViewName("/goods.jsp");
         return mav;
     }
+    /**
+     * 根据Proname得到图片，然后根据选择的颜色型号进行明细查询，并显示到页面
+     */
+    @RequestMapping("/selOnepro")
+    public ModelAndView selOnepro(String proname){
+        ModelAndView mav=new ModelAndView();
+        System.out.println("--selOnepro--"+proname);
+        List<Product> list=proService.selOnepro(proname);
+        mav.getModel().put("list",list);
+        mav.getModel().put("proname",proname);
+        mav.setViewName("/goods.jsp");
+        return mav;
+    }
+    /**
+     * 得到结算页面的商品名称 数量 价格
+     */
+    @RequestMapping("/jiesuan")
+    public ModelAndView jiesuan(String miaoshu,String jine,String shuliang,String mingcheng,String danjia,HttpServletRequest request){
+        ModelAndView mav=new ModelAndView();
+        System.out.println("--jiesuan--jine:"+jine+",shuliang:"+shuliang+",mingcehng:"+mingcheng+",danjia:"+danjia+"::"+miaoshu);
+        //把得到的数据内容传递到结算jsp页面
+       //拿到保存在session里的user的编号
+        HttpSession session=request.getSession();
+        User user=(User) session.getAttribute("user");
+        String userNum=user.getUserNum();
+        System.out.println("userNum:"+userNum);
+        //根据编号查询收货地址
+        List<Address> address=userService.selAddByuserNum(userNum);
+        mav.getModel().put("phone",user.getUserPhone());
+        mav.getModel().put("username",user.getUsername());
+        System.out.println("address:"+address);
+        mav.getModel().put("address",address);
 
+        Dingdan dingdan=new Dingdan();
+        dingdan.setShuliang(shuliang);
+        dingdan.setDanjia(danjia);
+        dingdan.setJine(jine);
+        dingdan.setMingcheng(mingcheng);
+        dingdan.setMiaoshu(miaoshu);
+        mav.getModel().put("dingdan",dingdan);
+        System.out.println("dingdan:"+dingdan);
+        mav.setViewName("/jiesuan.jsp");
+        return mav;
+    }
 
+    //将选中的商品明细添加到购物车
+    @RequestMapping("/addgwc")
+    public ModelAndView addgwc(String name,String miaoshu,String shuliang,String danjia,HttpServletRequest request){
+        ModelAndView mav=new ModelAndView();
+        System.out.println("--addgwc--"+name+"::"+miaoshu+"::"+shuliang+"::"+danjia);
+        //得到userNum
+        HttpSession session=request.getSession();
+        User user=(User) session.getAttribute("user");
+        String userNum=user.getUserNum();
+        Gwc gwc=new Gwc();
+        gwc.setName(name);
+        gwc.setMiaoshu(miaoshu);
+        gwc.setDanjia(danjia);
+        gwc.setShuliang(shuliang);
+        gwc.setUserNum(userNum);
+        proService.addgwc(gwc);
+        System.out.println("gwc:"+gwc);
+        mav.setViewName("/selAllgwc");
+        return mav;
+    }
+
+    @RequestMapping("/selAllgwc")
+    public ModelAndView selAllgwc (HttpServletRequest request){
+        ModelAndView mav=new ModelAndView();
+        //得到userNum
+        HttpSession session=request.getSession();
+        User user=(User) session.getAttribute("user");
+        String userNum=user.getUserNum();
+        List<Gwc> list=proService.selAllgwc(userNum);
+        System.out.println("list:::::"+list);
+        mav.getModel().put("list",list);
+        mav.setViewName("/gwc.jsp");
+        return mav;
+    }
 }

@@ -18,5 +18,6 @@ public interface UserService {
     public List<Province> findAllProvince();
     public List<City> findAllCityByProvincename(String provincename);
     public void updateAddByunum(Address address);
+    public List<Address> selAddByuserNum(String userNum);
 
 }

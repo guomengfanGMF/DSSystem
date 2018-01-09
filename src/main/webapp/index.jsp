@@ -4,9 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>**官方网站</title>
-	<!-- <link rel="shortcut icon" href="http://s01.mifile.cn/favicon.ico" type="image/x-icon"> -->
-	<link rel="stylesheet" href="css/main.css"> 
-	<%--<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>--%>
+	<link rel="stylesheet" href="css/main.css">
 	<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
@@ -34,7 +32,7 @@
 					
 			</div>
 			<div class="topbar-cart">
-				<a href="#"><i></i>购物车</a>
+				<a href="/gwc.jsp"><i></i>购物车</a>
 			</div>
 			<div class="topbar-info">
 				<a href="/login.jsp" class="link">登录</a>

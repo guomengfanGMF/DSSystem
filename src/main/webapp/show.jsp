@@ -31,13 +31,11 @@
             <a href="#">问题反馈</a>
 
         </div>
-        <div class="topbar-cart">
-            <a href="#"><i></i>购物车</a>
-        </div>
+
         <div class="topbar-info">
             <a href="/myself.jsp" class="link">个人中心</a>
             <span class="ver">|</span>
-            <a href="#" class="link">购物车</a>
+            <a href="/selAllgwc" class="link">购物车</a>
             <span class="ver">|</span>
             <a href="#" class="link">查看订单</a>
         </div>
@@ -61,7 +59,7 @@
                                 <div class="children-nav">
                                     <ul class="children-list">
                                         <li><a href="/selOneProdet?proname=华为Mate10Pro" class="link"><img src="img/icon/holder_40.png" class="icon-80"><span class="title">华为Mate10Pro</span></a><a href="/selOneProdet?proname=华为Mate10Pro" class="buybtn">选购</a></li>
-                                        <li><a href="/selOneProdet?proname=华为畅享7s" class="link"><img src="img/icon/xm5_80.png" class="icon-80"><span class="title">华为畅享7s</span></a><a href="/selOneProdet?proname=华为畅享7s" class="buybtn">选购</a></li>
+                                        <li><a href="/selOneProdet?proname=华为畅享7s黑色" class="link"><img src="img/icon/xm5_80.png" class="icon-80"><span class="title">华为畅享7s黑色</span></a><a href="/selOneProdet?proname=华为畅享7s黑色" class="buybtn">选购</a></li>
                                         <li><a href="#" class="link"><img src="img/icon/max2_80.jpg" class="icon-80"><span class="title">华为</span></a><a href="#" class="buybtn">选购</a></li>
                                         <li><a href="#" class="link"><img src="img/icon/5c_80.png" class="icon-80"><span class="title">华为</span></a><a href="#" class="buybtn">选购</a></li>
                                         <li><a href="#" class="link"><img src="img/icon/xmNOTE2_80.jpg" class="icon-80"><span class="title">华为</span></a><a href="#" class="buybtn">选购</a></li>

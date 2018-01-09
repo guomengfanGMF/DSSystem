@@ -1,9 +1,6 @@
 package com.gmf.mapper;
 
-import com.gmf.entity.Prodet;
-import com.gmf.entity.Product;
-import com.gmf.entity.Ptype;
-import com.gmf.entity.Supplier;
+import com.gmf.entity.*;
 
 import java.util.List;
 
@@ -23,4 +20,9 @@ public interface ProMapper {
     public String selPdturl(int id);
     public List<Prodet> selOneProdet(String pnum);
     public String selOneproNum(String proname);
+    public List<Product> selOnepro(String proname);
+    //添加商品到购物车
+    public void addgwc(Gwc gwc);
+    //查找某个人的所有的购物车
+    public List<Gwc> selAllgwc(String userNum);
 }

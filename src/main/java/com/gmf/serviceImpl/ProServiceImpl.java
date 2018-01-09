@@ -1,9 +1,6 @@
 package com.gmf.serviceImpl;
 
-import com.gmf.entity.Prodet;
-import com.gmf.entity.Product;
-import com.gmf.entity.Ptype;
-import com.gmf.entity.Supplier;
+import com.gmf.entity.*;
 import com.gmf.mapper.ProMapper;
 import com.gmf.service.ProService;
 import org.springframework.stereotype.Service;
@@ -66,6 +63,18 @@ public class ProServiceImpl implements ProService {
     public String selOneproNum(String proname) {
         System.out.println("--ServiceImpl--"+proMapper.selOneproNum(proname));
         return proMapper.selOneproNum(proname);
+    }
+
+    public List<Product> selOnepro(String proname) {
+        return proMapper.selOnepro(proname);
+    }
+
+    public void addgwc(Gwc gwc) {
+        proMapper.addgwc(gwc);
+    }
+
+    public List<Gwc> selAllgwc(String userNum) {
+        return proMapper.selAllgwc(userNum);
     }
 
 }

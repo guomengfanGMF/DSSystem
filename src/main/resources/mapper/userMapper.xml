@@ -73,4 +73,7 @@
         update user_address set PROVINCE=#{province},CITY=#{city},ADDRESS_DETAILE=#{detAddress},YORN_MAIN=#{moren},
         YORN_USE=#{use},ADDRESS_REGDATE=#{regdate} where ID=#{id}
     </update>
+    <select id="selAddByuserNum" parameterType="string" resultMap="selA">
+        select * from user_address where USER_NUM=#{userNum} and YORN_MAIN="on"
+    </select>
 </mapper>

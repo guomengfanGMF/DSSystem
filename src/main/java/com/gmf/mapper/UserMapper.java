@@ -20,4 +20,6 @@ public interface UserMapper {
     //省份
     public List<City> findAllCityByProvincename(String provincename);
     public void updateAddByunum(Address address);
+    //根据编号查询地址
+    public List<Address> selAddByuserNum(String userNum);
 }

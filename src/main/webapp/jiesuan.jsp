@@ -5,7 +5,8 @@
   Time: 17:43
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>商品结算页</title>
@@ -125,13 +126,14 @@
                             <div class="clearfix xm-address-list" id="checkoutAddrList">
                                 <dl class="item" >
                                     <dt>
-                                        <strong class="itemConsignee">郭梦帆</strong>
-                                        <span class="itemTag tag">家</span>
+                                        <strong class="itemConsignee">${username}</strong>
                                     </dt>
                                     <dd>
-                                        <p class="tel itemTel">18131371651</p>
-                                        <p class="itemRegion">河北省 石家庄市</p>
-                                        <p class="itemStreet">民丰西苑82号202室(214045)</p>
+                                        <p class="tel itemTel">${phone}</p>
+                                        <c:forEach items="${address}" var="address">
+                                        <p class="itemRegion">${address.province} ${address.city}</p>
+                                        <p class="itemStreet">${address.detAddress}</p>
+                                        </c:forEach>
                                         <span class="edit-btn J_editAddr">修改</span>
                                     </dd>
                                     <dd style="display:none">
@@ -143,16 +145,6 @@
                                     使用新地址
                                 </div>
                             </div>
-                            <input type="hidden" name="newAddress[type]" id="newType" value="common">
-                            <input type="hidden" name="newAddress[consignee]" id="newConsignee">
-                            <input type="hidden" name="newAddress[province]" id="newProvince">
-                            <input type="hidden" name="newAddress[city]" id="newCity">
-                            <input type="hidden" name="newAddress[district]" id="newCounty">
-                            <input type="hidden" name="newAddress[address]" id="newStreet">
-                            <input type="hidden" name="newAddress[zipcode]" id="newZipcode">
-                            <input type="hidden" name="newAddress[tel]" id="newTel">
-                            <input type="hidden" name="newAddress[tag_name]" id="newTag">
-                            <!--点击弹出新增/收货地址界面start-->
 
                             <div class="xm-edit-addr-backdrop" id="J_editAddrBackdrop"></div>
                         </div>                </div>
@@ -289,7 +281,6 @@
                                 <span class="col col-4">小计（元）</span>
                             </dt>
                             <dd class="item clearfix">
-
                                 <div class="item-row">
                                     <div class="col col-1">
                                         <div class="g-pic">
@@ -297,40 +288,20 @@
                                         </div>
                                         <div class="g-info">
                                             <checkbox>
-                                                <a href="#"> 华为畅享7s</a>
+                                                <a href="#">${dingdan.mingcheng}(${dingdan.miaoshu})</a>
                                             </checkbox>
                                         </div>
                                     </div>
 
-                                    <div class="col col-2">1499元</div>
-                                    <div class="col col-3">1</div>
-                                    <div class="col col-4">1499元</div>
+                                    <div class="col col-2">${dingdan.danjia}</div>
+                                    <div class="col col-3">${dingdan.shuliang}</div>
+                                    <div class="col col-4">${dingdan.jine}</div>
                                 </div>
-
-                            </dd>
-                            <dd class="item clearfix">
-                                <div class="item-row">
-                                    <div class="col col-1">
-                                        <div class="g-pic">
-                                            <img src="img/images/7s.jpg"  width="40" height="40" />
-                                        </div>
-                                        <div class="g-info">
-                                            <a href="#">华为畅享7s</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="col col-2">1499元</div>
-                                    <div class="col col-3">1</div>
-                                    <div class="col col-4">1499元</div>
-                                </div>
-                            </dd>
-                            <dd class="item clearfix">
-
                             </dd>
                         </dl>
                         <div class="checkout-count clearfix">
                             <div class="checkout-count-extend xm-add-buy">
-                                <h2> class="title">会员留言</h2></br>
+                                <h2>会员留言</h2></br>
                                     <input type="text" />
 
                             </div>

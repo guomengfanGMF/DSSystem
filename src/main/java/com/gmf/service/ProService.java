@@ -1,9 +1,6 @@
 package com.gmf.service;
 
-import com.gmf.entity.Prodet;
-import com.gmf.entity.Product;
-import com.gmf.entity.Ptype;
-import com.gmf.entity.Supplier;
+import com.gmf.entity.*;
 
 import java.util.List;
 
@@ -21,4 +18,7 @@ public interface ProService {
     public String selPdturl(int id);
     public List<Prodet> selOneProdet(String pnum);
     public String selOneproNum(String proname);
+    public List<Product> selOnepro(String proname);
+    public void addgwc(Gwc gwc);
+    public List<Gwc> selAllgwc(String userNum);
 }
