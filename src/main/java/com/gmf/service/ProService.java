@@ -21,4 +21,6 @@ public interface ProService {
     public List<Product> selOnepro(String proname);
     public void addgwc(Gwc gwc);
     public List<Gwc> selAllgwc(String userNum);
+    public List<Dingdan> selADingdan(String userNum);
+    public void addDingdan(Dingdan dingdan);
 }

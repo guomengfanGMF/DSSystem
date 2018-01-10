@@ -32,7 +32,7 @@
 
         </ul>
         <ul class="fr 1h">
-            <li class="fl"><div class="menu_hd"><a href="#">我的订单</a></div></li>
+            <li class="fl"><div class="menu_hd"><a href="/selADingdan">我的订单</a></div></li>
             <li class="fl"><i class="shortcut_s"></i></li>
             <li class="fl"><div class="menu_hd"><a href="#">我的宝贝</a></div></li>
             <li class="fl"><i class="shortcut_s"></i></li>
@@ -112,7 +112,7 @@
 
     <div class="container">
         <div class="checkout-box">
-            <form  id="checkoutForm" action="#" method="post">
+            <form  id="checkoutForm" action="/addDingdan" method="post">
                 <div class="checkout-box-bd">
                     <!-- 地址状态 0：默认选择；1：新增地址；2：修改地址 -->
                     <input type="hidden" name="Checkout[addressState]" id="addrState"   value="0">
@@ -263,10 +263,19 @@
 
                         </div>
                     </div>                </div>
-                <!-- 发票信息 END-->
+             <!-- 发票信息 END-->
         </div>
         <div class="checkout-box-ft">
             <!-- 商品清单 -->
+
+                <input type="hidden" name="mingcheng" value="${dingdan.mingcheng}">
+                <input type="hidden" name="danjia" value="${dingdan.danjia}">
+                <input type="hidden" name="jine" value="${dingdan.jine}">
+                <input type="hidden" name="shuliang" value="${dingdan.shuliang}">
+                <input type="hidden" name="miaoshu" value="${dingdan.miaoshu}">
+                <c:forEach items="${address}" var="address">
+                <input type="hidden" name="address" value="${address.province}${address.city}${address.detAddress}">
+                </c:forEach>
             <div id="checkoutGoodsList" class="checkout-goods-box">
                 <div class="xm-box">
                     <div class="box-hd">
@@ -292,7 +301,6 @@
                                             </checkbox>
                                         </div>
                                     </div>
-
                                     <div class="col col-2">${dingdan.danjia}</div>
                                     <div class="col col-3">${dingdan.shuliang}</div>
                                     <div class="col col-4">${dingdan.jine}</div>
@@ -301,22 +309,21 @@
                         </dl>
                         <div class="checkout-count clearfix">
                             <div class="checkout-count-extend xm-add-buy">
-                                <h2>会员留言</h2></br>
-                                    <input type="text" />
-
+                                <h2>会员备注</h2></br>
+                                    <input type="text" name="beizhu"/>
                             </div>
                             <!-- checkout-count-extend -->
                             <div class="checkout-price">
                                 <ul>
 
                                     <li>
-                                        订单总额：<span>2998元</span>
+                                        订单总额：<span>${dingdan.jine}</span>
                                     </li>
                                     <li>
                                         活动优惠：<span>-0元</span>
                                         <script type="text/javascript">
                                             checkoutConfig.activityDiscountMoney=0;
-                                            checkoutConfig.totalPrice=2998.00;
+                                            checkoutConfig.totalPrice=${dingdan.jine};
                                         </script>
                                     </li>
                                     <li>
@@ -326,14 +333,14 @@
                                         运费：<span id="postageDesc">0元</span>
                                     </li>
                                 </ul>
-                                <p class="checkout-total">应付总额：<span><strong id="totalPrice">2998</strong>元</span></p>
+                                <p class="checkout-total">应付总额：<span><strong id="totalPrice">${dingdan.jine}</strong>元</span></p>
                             </div>
                             <!--  -->
                         </div>
                     </div>
                 </div>
-
             </div>
+
             <!-- 商品清单 END -->
             <input type="hidden"  id="couponType" name="Checkout[couponsType]">
             <input type="hidden" id="couponValue" name="Checkout[couponsValue]">
@@ -343,9 +350,8 @@
                 <input type="submit" class="btn btn-primary" value="立即下单" id="checkoutToPay" />
             </div>
         </div>
+        </form>
     </div>
-
-    </form>
 </div>
 
 

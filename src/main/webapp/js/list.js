@@ -1,4 +1,3 @@
-// JavaScript Document
 
 //商品规格选择
 $(function() {
@@ -50,7 +49,6 @@ $(document).ready(function() {
 		st;
 
 	if ($ww < 623) {
-
 				var tp =$ww+363;
 				$(window).scroll(function() {
 					st = Math.max(document.body.scrollTop || document.documentElement.scrollTop);
@@ -95,23 +93,14 @@ $(document).ready(function() {
 				'position': 'static'
 			});
 		});
-
-
-
 	}
 });
-
-
 
 $(document).ready(function() {
 	//优惠券
 	$(".hot span").click(function() {
 		$(".shopPromotion.gold .coupon").toggle();
 	})
-
-
-
-
 	//获得文本框对象
 	var t = $("#text_box");
 	//初始化数量为1,并失效减
@@ -122,7 +111,6 @@ $(document).ready(function() {
 			if (parseInt(t.val()) != 1) {
 				$('#min').attr('disabled', false);
 			}
-
 		})
 		//数量减少操作
 	$("#min").click(function() {
@@ -130,7 +118,5 @@ $(document).ready(function() {
 		if (parseInt(t.val()) == 1) {
 			$('#min').attr('disabled', true);
 		}
-
 	})
-
 })

@@ -25,4 +25,8 @@ public interface ProMapper {
     public void addgwc(Gwc gwc);
     //查找某个人的所有的购物车
     public List<Gwc> selAllgwc(String userNum);
+    //查看用户订单
+    public List<Dingdan> selADingdan(String userNum);
+    //保存订单
+    public void addDingdan(Dingdan dingdan);
 }

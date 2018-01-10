@@ -1,19 +1,18 @@
 <%--
   Created by IntelliJ IDEA.
   User: 郭
-  Date: 2017/12/26
-  Time: 11:06
+  Date: 2018/1/10
+  Time: 11:15
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-<title>个人中心</title>
-
-<link href="css/custom.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
     <!--设置了整个的列表框架-->
     <link href="css/personal.css" rel="stylesheet" type="text/css">
-
+    <title>查看订单</title>
 </head>
 
 <body>
@@ -27,44 +26,31 @@
 
                 <!--标题 -->
                 <div class="am-cf am-padding">
-                    <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">个人基本信息</strong> / <small>OneSelf&nbsp;details</small></div>
+                    <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">所有订单</strong> / <small>ALL&nbsp;orders</small></div>
                 </div>
                 <hr/>
-                <table border="2px" cellspacing="2px">
-                    <caption>个人基本信息</caption>
+                <table border="2px" cellspacing="5px">
+                    <caption>所有订单</caption>
                     <thead>
                     <tr>
-                        <th>编号</th>
-                        <th>账号</th>
-                        <th>个人等级</th>
-                        <th>身份证号</th>
-                        <th>生日</th>
-                        <th>真实姓名</th>
-                        <th>注册日期</th>
-                        <th>积分</th>
-                        <th>余额</th>
-                        <th>注册邮箱</th>
-                        <th>消费总额</th>
-                        <th>联系电话</th>
-                        <th>默认收件地址</th>
+                        <th>名称</th>
+                        <th>单价</th>
+                        <th>数量</th>
+                        <th>描述</th>
+                        <th>金额</th>
+                        <th>收货地址</th>
                     </tr>
                     </thead>
-                    <tr>
-                        <th>${user.userNum}</th>
-                        <th>${user.username}</th>
-                        <th>${user.userType}</th>
-                        <th>${user.userCardnum}</th>
-                        <th>${user.userBirth}</th>
-                        <th>${user.userRealname}</th>
-                        <th>${user.userRegdate}</th>
-                        <th>${user.userCredits}</th>
-                        <th>${user.userBalance}</th>
-                        <th>${user.userEmail}</th>
-                        <th>${user.userTotalmoney}</th>
-                        <th>${user.userPhone}</th>
-                        <th>${user.mainAddressID}<a href="/selAddByunum?unum=${user.userNum}">【查看详情】</a></th>
-                        <th><a href="/updateOne.jsp">修改</a></th>
-                    </tr>
+                    <c:forEach items="${list}" var="list">
+                        <tr>
+                            <th>${list.mingcheng}</th>
+                            <th>${list.danjia}</th>
+                            <th>${list.shuliang}</th>
+                            <th>${list.miaoshu}</th>
+                            <th>${list.jine}</th>
+                            <th>${list.address}</th>
+                        </tr>
+                    </c:forEach>
                 </table>
 
             </div>

@@ -1,9 +1,6 @@
 package com.gmf.mapper;
 
-import com.gmf.entity.Address;
-import com.gmf.entity.City;
-import com.gmf.entity.Province;
-import com.gmf.entity.User;
+import com.gmf.entity.*;
 
 import java.util.List;
 
@@ -22,4 +19,5 @@ public interface UserMapper {
     public void updateAddByunum(Address address);
     //根据编号查询地址
     public List<Address> selAddByuserNum(String userNum);
+
 }

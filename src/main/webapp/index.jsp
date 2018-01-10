@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +36,7 @@
 				<a href="/gwc.jsp"><i></i>购物车</a>
 			</div>
 			<div class="topbar-info">
-				<a href="/login.jsp" class="link">登录</a>
+				<a href="/login.jsp" class="link">你好，请登录</a>
 					<span class="ver">|</span>
 				<a href="/reg.jsp" class="link">注册</a>
 					<span class="ver">|</span>
@@ -60,12 +61,9 @@
 								<li class="side-item"><a href="#">手机 数码<i class="iconfont">&#xe6a7;</i></a>
 									<div class="children-nav">
 										<ul class="children-list">
-											<li><a href="#" class="link"><img src="img/icon/holder_40.png" class="icon-80"><span class="title">华为</span></a><a href="#" class="buybtn">选购</a></li>
-											<li><a href="#" class="link"><img src="img/icon/xm5_80.png" class="icon-80"><span class="title">华为</span></a><a href="#" class="buybtn">选购</a></li>
-											<li><a href="#" class="link"><img src="img/icon/max2_80.jpg" class="icon-80"><span class="title">华为</span></a><a href="#" class="buybtn">选购</a></li>
-											<li><a href="#" class="link"><img src="img/icon/5c_80.png" class="icon-80"><span class="title">华为</span></a><a href="#" class="buybtn">选购</a></li>
-											<li><a href="#" class="link"><img src="img/icon/xmNOTE2_80.jpg" class="icon-80"><span class="title">华为</span></a><a href="#" class="buybtn">选购</a></li>
-											<li><a href="#" class="link"><img src="img/icon/MIX_80.jpg" class="icon-80"><span class="title">华为系列</span></a><a href="#" class="buybtn">选购</a></li>
+											<c:forEach items="${list}" var="list">
+												<li><a href="/selOneProdet?proname=${list.proname}" class="link"><img src="${list.proSPurl}" class="icon-80"><span class="title">${list.proname}</span></a><a href="/selOneProdet?proname=${list.proname}" class="buybtn">选购</a></li>
+											</c:forEach>
 										</ul>
 										<ul class="children-list">
 											<li><a href="#" class="link"><img src="img/icon/xm5s_80.jpg"><span class="title">OPPO</span></a><a href="#" class="buybtn">选购</a></li>

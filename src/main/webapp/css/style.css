@@ -62,9 +62,9 @@ ul.am-tabs-nav.am-nav.am-nav-tabs {width:100%;background:#fff;}
 .shopPromotion.gold .gold-list{margin-left:60px;overflow: hidden;}
 .shopPromotion.gold .gold-list p{margin-top:10px ;padding-left:8px ;color: #B5621B;font-size:14px;}
 .shopPromotion.gold .gold-list span{display: none;}
-.shopPromotion.gold .gold-list li{float:left;padding:5px 10px;border-radius:5px;background:#C40000 ;color: #fff;margin:5px 5px ;}
+.shopPromotion.gold .gold-list li{float:left;padding:5px 10px;border-radius:5px;background:#C40000 ;color:blue;margin:5px 5px ;}
 
-
+/*background:#C40000 ;color: #fff;*/
 /*销量*/
 .tm-ind-panel {padding: 10px 0px;position: relative;overflow: hidden;clear: both;display: flex;}    
 .tm-ind-item {float: left;width: 33%;text-align: center;position: relative;left: -1px;border-left: 1px solid #E5DFDA;
@@ -218,7 +218,7 @@ ul#J_AttrUL li {display: inline;float: left;width: 33.33%;}
 .tb-detail-list{position: relative;}
 .shopPromotion.gold .gold-list span{position: absolute;right: 10px;display: inline-block;cursor:pointer ;padding:0px 10px;} 
 .shopPromotion.gold .coupon{display: none;padding:10px  0px;}
-.shopPromotion.gold .coupon .gold-list li {border-radius:0;background:url(../images/couponli.png) no-repeat ;padding: 10px 10px;}
+.shopPromotion.gold .coupon .gold-list li {border-radius:0;background:url(/img/couponli.png) no-repeat ;padding: 10px 10px;}
 .shopPromotion.gold .coupon dt{margin-top:16px ;}
 
 /*销量*/
@@ -350,11 +350,7 @@ ul.am-tabs-nav.am-nav.am-nav-tabs {left:20% ;max-width:960px ;background: #F5F5F
 /*导航固定*/
 ul.am-tabs-nav.am-nav.am-nav-tabs {left:auto;right:auto;width:960px ;}
 
-
 }
-	
-	
-	
 /*轮播*/
 .flexslider {
   margin: 0;

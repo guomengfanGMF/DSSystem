@@ -88,4 +88,11 @@
     <select id="selAllgwc" parameterType="String" resultType="gwc">
         select * from gwc where userNum=#{userNum}
     </select>
+    <select id="selADingdan" parameterType="String" resultType="dingdan">
+        select * from dingdan where userNum=#{userNum}
+    </select>
+    <insert id="addDingdan" parameterType="dingdan">
+        insert into dingdan(mingcheng,danjia,shuliang,miaoshu,address,userNum,jine,beizhu) values(#{mingcheng},
+        #{danjia},#{shuliang},#{miaoshu},#{address},#{userNum},#{jine},#{beizhu})
+    </insert>
 </mapper>

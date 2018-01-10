@@ -28,15 +28,19 @@
         <property name="securityManager" ref="securityManager"/>
         <property name="loginUrl" value="/login"/>
 
-        <property name="successUrl" value="/show.jsp"/>
+        <property name="successUrl" value="/selAPro"/>
         <property name="filterChainDefinitions">
             <value>
                 <!--可以匿名访问的页面-->
                 /=anon
+                /one=anon
                 /reg=anon
+                /selOnepro=anon
+                /selOneProdet=anon
                 /reg.jsp=anon
                 /login.jsp=anon
                 /zh=anon
+                /goods.jsp=anon
                 /js/**=anon
                 /css/**=anon
                 /img/**=anon

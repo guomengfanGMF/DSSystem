@@ -9,6 +9,10 @@ public class Dingdan implements Serializable {
     private String jine;
     private String shuliang;
     private String miaoshu;
+    private String address;
+    private String userNum;
+    private String beizhu;
+
 
     public Dingdan(){}
 
@@ -60,6 +64,30 @@ public class Dingdan implements Serializable {
         this.miaoshu = miaoshu;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getUserNum() {
+        return userNum;
+    }
+
+    public void setUserNum(String userNum) {
+        this.userNum = userNum;
+    }
+
+    public String getBeizhu() {
+        return beizhu;
+    }
+
+    public void setBeizhu(String beizhu) {
+        this.beizhu = beizhu;
+    }
+
     @Override
     public String toString() {
         return "Dingdan{" +
@@ -69,15 +97,21 @@ public class Dingdan implements Serializable {
                 ", jine='" + jine + '\'' +
                 ", shuliang=" + shuliang +
                 ", miaoshu=" + miaoshu +
+                ", address=" + address +
+                ", userNum=" + userNum +
+                ", beizhu=" + beizhu +
                 '}';
     }
 
-    public Dingdan(int id, String mingcheng, String danjia, String jine, String shuliang,String miaoshu) {
+    public Dingdan(int id, String mingcheng, String danjia, String jine, String shuliang,String miaoshu,String address,String userNum,String beizhu) {
         this.id = id;
         this.mingcheng = mingcheng;
         this.danjia = danjia;
         this.jine = jine;
         this.shuliang = shuliang;
         this.miaoshu = miaoshu;
+        this.address = address;
+        this.userNum = userNum;
+        this.beizhu = beizhu;
     }
 }

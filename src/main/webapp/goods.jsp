@@ -15,7 +15,6 @@
     <link type="text/css" href="css/optstyle.css" rel="stylesheet" />
     <!--设置了整个页面的样式-->
     <link type="text/css" href="css/style.css" rel="stylesheet" />
-
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/quick_links.js"></script>
 
@@ -80,9 +79,9 @@
                 </script>
 
                 <div class="tb-booth tb-pic tb-s310">
-                  <%--  <c:forEach items="${list}" var="list">
+                  <c:forEach items="${list}" var="list">
                         <a href="${list.dsurl}"><img src="${list.dsurl}" alt="细节展示放大镜特效" rel="${list.dsurl}" class="jqzoom" /></a>
-                    </c:forEach>--%>
+                    </c:forEach>
                     <%--<a href="img/images/01.jpg"><img src="img/images/01_mid.jpg" alt="细节展示放大镜特效" rel="img/images/01.jpg" class="jqzoom" /></a>--%>
                 </div>
                 <ul class="tb-thumb" id="thumblist">
@@ -171,9 +170,9 @@
         <dt class="tb-metatit">优惠券</dt>
         <div class="gold-list">
             <ul>
-                <li>125减5</li>
-                <li>198减10</li>
-                <li>298减20</li>
+                <li>500减50</li>
+                <li>900减90</li>
+                <li>1500减150</li>
             </ul>
         </div>
     </div>

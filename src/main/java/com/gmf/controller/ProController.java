@@ -331,4 +331,77 @@ public class ProController {
         mav.setViewName("/gwc.jsp");
         return mav;
     }
+
+    //登录之后返回到show.jsp,并查询商品信息放到show.jsp
+    @RequestMapping("/selAPro")
+    public ModelAndView selAPro(HttpServletRequest request){
+        System.out.println("--selAPro--");
+        ModelAndView mav=new ModelAndView();
+        //拿到用户
+        HttpSession session=request.getSession();
+        User user=(User) session.getAttribute("user");
+
+        List<Product> list=proService.selAllPro();
+        mav.getModel().put("list",list);
+        mav.getModel().put("user",user);
+        System.out.println("list::"+list+"::user::"+user);
+        mav.setViewName("/show.jsp");
+        return mav;
+    }
+    //查询所有的跳转到index.jsp
+    @RequestMapping("/one")
+    public ModelAndView one(HttpServletRequest request){
+        System.out.println("--one--");
+        ModelAndView mav=new ModelAndView();
+        //拿到用户
+        HttpSession session=request.getSession();
+        User user=(User) session.getAttribute("user");
+
+        List<Product> list=proService.selAllPro();
+        mav.getModel().put("list",list);
+        mav.getModel().put("user",user);
+        System.out.println("list::"+list+"::user::"+user);
+        mav.setViewName("/index.jsp");
+        return mav;
+    }
+    //查看某个人的所有订单
+    @RequestMapping("/selADingdan")
+    public ModelAndView selADingdan(HttpServletRequest request){
+        ModelAndView mav=new ModelAndView();
+        System.out.println("--selADingdan--");
+        //拿到编号
+        HttpSession session=request.getSession();
+        User user=(User) session.getAttribute("user");
+
+        List<Dingdan> list=proService.selADingdan(user.getUserNum());
+        mav.getModel().put("list",list);
+        mav.getModel().put("user",user);
+        mav.getModel().put("userNum",user.getUserNum());
+        mav.setViewName("/WEB-INF/jsp/dingdan.jsp");
+        return mav;
+    }
+    //用户提交订单
+    @RequestMapping("/addDingdan")
+    public ModelAndView addDingdan(HttpServletRequest request,String beizhu,String mingcheng,String danjia,String jine,String shuliang,String miaoshu, String address){
+        ModelAndView mav=new ModelAndView();
+        //拿到这个人的编号
+        System.out.println("addDingdan::"+address);
+         HttpSession session=request.getSession();
+        User user=(User) session.getAttribute("user");
+        Dingdan dingdan=new Dingdan();
+        dingdan.setMiaoshu(miaoshu);
+        dingdan.setMingcheng(mingcheng);
+        dingdan.setJine(jine);
+        dingdan.setDanjia(danjia);
+        dingdan.setAddress(address);
+        dingdan.setBeizhu(beizhu);
+        dingdan.setShuliang(shuliang);
+        dingdan.setUserNum(user.getUserNum());
+        proService.addDingdan(dingdan);
+        mav.getModel().put("user",user);
+        mav.getModel().put("dingdan",dingdan);
+        System.out.println("dingdan::"+dingdan+":user::"+user);
+        mav.setViewName("/WEB-INF/jsp/success.jsp");
+        return mav;
+    }
 }

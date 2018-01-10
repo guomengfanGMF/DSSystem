@@ -77,4 +77,12 @@ public class ProServiceImpl implements ProService {
         return proMapper.selAllgwc(userNum);
     }
 
+    public List<Dingdan> selADingdan(String userNum) {
+        return proMapper.selADingdan(userNum);
+    }
+
+    public void addDingdan(Dingdan dingdan) {
+        proMapper.addDingdan(dingdan);
+    }
+
 }
